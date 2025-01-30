@@ -1,4 +1,6 @@
 import { arc } from "d3-shape";
+import Face from "./face";
+import Eye from "./eye";
 
 const SmileFace = () => {
   const svgHeight = 500;
@@ -22,25 +24,26 @@ const SmileFace = () => {
   return (
     <svg id="svg" width={svgWidth} height={svgHeight}>
       <g transform={`translate(${centerX},${centerY})`}>
-        <circle 
+        <Face
           r={r}
-          fill="yellow"
-          stroke="black"
           strokeWidth={strokeWidth}
         />
-        <circle 
-          r={eyeRadius}
-          cx={-eyeOffSetX} 
-          cy={-eyeOffSetY} 
-          fill="black"
-        />
-        <circle 
-          r={eyeRadius}
-          cx={eyeOffSetX} 
-          cy={-eyeOffSetY} 
-          fill="black"
+
+        <Eye 
+          position={"left"}
+          eyeRadius={eyeRadius}
+          eyeOffSetX={eyeOffSetX}
+          eyeOffSetY={eyeOffSetY}
         />
 
+        <Eye 
+          position={"right"}
+          eyeRadius={eyeRadius}
+          eyeOffSetX={eyeOffSetX}
+          eyeOffSetY={eyeOffSetY}
+        />
+
+        {/* Mouth */}
         <path d={mouthArc()}/>
       </g>
     </svg>
