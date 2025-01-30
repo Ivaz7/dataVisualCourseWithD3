@@ -1,10 +1,14 @@
-const Face = (prop) => {
+import { useDataFace } from "../hooks/useDataFace";
+
+const Face = () => {
+  const { r, strokeWidth } = useDataFace();
+
   return (
     <circle 
-      r={prop.r}
+      r={r}
       fill="yellow"
       stroke="black"
-      strokeWidth={prop.strokeWidth}
+      strokeWidth={strokeWidth}
     />
   )
 }

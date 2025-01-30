@@ -1,17 +1,21 @@
+import { useDataFace } from "../hooks/useDataFace";
+
 const Eye = (prop) => {
+  const {eyeRadius, eyeOffSetX, eyeOffSetY} = useDataFace();
+
   let position = null;
   
   if (prop.position === "left") {
-    position = -prop.eyeOffSetX;
+    position = -eyeOffSetX;
   } else {
-    position = prop.eyeOffSetX;
+    position = eyeOffSetX;
   }
 
   return (
     <circle 
-      r={prop.eyeRadius}
+      r={eyeRadius}
       cx={position} 
-      cy={-prop.eyeOffSetY} 
+      cy={-eyeOffSetY} 
       fill="black"
     />
   )
