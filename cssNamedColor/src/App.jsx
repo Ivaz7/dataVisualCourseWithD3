@@ -1,15 +1,9 @@
-import { useGetCSSColorsQuery } from "./service/redux/API/APIcsvCSSClr"
+import CssNamedColor from "./components/cssNamed"
 
 function App() {
-  const { data } = useGetCSSColorsQuery();
-
-  if (data) {
-    console.log(data[0])
-  }
-
   return (
     <>
-      
+      <CssNamedColor />
     </>
   )
 }
