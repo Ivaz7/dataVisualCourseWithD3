@@ -3,6 +3,7 @@ import { useGetCSSColorsQuery } from '../service/redux/API/APIcsvCSSClr';
 import * as d3 from 'd3';
 import { setData } from '../service/redux/slice/dataSlice';
 import { useEffect } from 'react';
+import RenderData from './renderData';
 
 const CssNamedColor = () => {
   const { data, isError, isLoading, error, reset } = useGetCSSColorsQuery();
@@ -21,15 +22,13 @@ const CssNamedColor = () => {
     reset();
   }
 
-  if (isLoading) {
+  if (isLoading || !Array.isArray(dataStored)) {
     return <div>Loading ...</div>
   }
 
-  console.log(dataStored)
-
   return (
     <>
-
+      <RenderData data={dataStored}/>
     </>
   )
 }
